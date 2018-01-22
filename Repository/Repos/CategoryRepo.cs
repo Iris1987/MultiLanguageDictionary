@@ -58,7 +58,8 @@ namespace Repository.Repos
 
         public Category GetByID(int id)
         {
-            return db.Categorys.Find(id);
+            return db.Categorys.FirstOrDefault(x => x.IdCategory == id);/*db.Categorys.Find(id);*/
+
         }
 
         public void Create(Category item)
@@ -69,6 +70,7 @@ namespace Repository.Repos
         public void Update(Category item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
         public IEnumerable<CategoryRepo> Find(Expression<Func<CategoryRepo, bool>> predicate)

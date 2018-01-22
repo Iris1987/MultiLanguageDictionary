@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public LangRussian GetByID(int id)
         {
-            return db.LangRussians.Find(id);
+            return db.LangRussians.FirstOrDefault(x => x.IdWord == id); /*db.LangRussians.Find(id);*/
         }
 
         public void Create(LangRussian item)
@@ -67,6 +67,7 @@ namespace Repository.Repos
         public void Update(LangRussian item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
     }

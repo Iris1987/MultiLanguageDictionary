@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public TranslationEngEst GetByID(int id)
         {
-            return db.TranslationEngEsts.Find(id);
+            return db.TranslationEngEsts.FirstOrDefault(x => x.IdTranslation == id); /*db.TranslationEngEsts.Find(id);*/
         }
 
         public void Create(TranslationEngEst item)

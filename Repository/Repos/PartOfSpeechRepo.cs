@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public PartOfSpeech GetByID(int id)
         {
-            return db.PartOfSpeechs.Find(id);
+            return db.PartOfSpeechs.FirstOrDefault(x => x.IdPart == id); /*db.PartOfSpeechs.Find(id);*/
         }
 
         public void Create(PartOfSpeech item)
@@ -67,6 +67,7 @@ namespace Repository.Repos
         public void Update(PartOfSpeech item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
         

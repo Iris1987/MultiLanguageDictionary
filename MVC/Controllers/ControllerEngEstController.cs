@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services;
 
 namespace MVC.Controllers
 {
     public class ControllerEngEstController : Controller
     {
-        private Eng
-        public ControllerEngEstController()
+        private EngEstService service;
+        public ControllerEngEstController(EngEstService service)
         {
 
-
+            this.service = service;
 
         }
 

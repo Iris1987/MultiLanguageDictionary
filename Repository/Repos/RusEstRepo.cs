@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public TranslationRusEst GetByID(int id)
         {
-            return db.TranslationRusEsts.Find(id);
+            return db.TranslationRusEsts.FirstOrDefault(x => x.IdTranslation == id);/*db.TranslationRusEsts.Find(id);*/
         }
 
         public void Create(TranslationRusEst item)
@@ -67,6 +67,7 @@ namespace Repository.Repos
         public void Update(TranslationRusEst item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
     }

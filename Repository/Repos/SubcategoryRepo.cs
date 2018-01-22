@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public Subcategory GetByID(int id)
         {
-            return db.Subcategorys.Find(id);
+            return db.Subcategorys.FirstOrDefault(x => x.IdSubcategory == id);/*db.Subcategorys.Find(id);*/
         }
 
         public void Create(Subcategory item)
@@ -67,6 +67,7 @@ namespace Repository.Repos
         public void Update(Subcategory item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
        

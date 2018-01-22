@@ -56,7 +56,7 @@ namespace Repository.Repos
 
         public LangEstonian GetByID(int id)
         {
-            return db.LangEstonians.Find(id);
+            return db.LangEstonians.FirstOrDefault(x => x.IdWord == id); /*db.LangEstonians.Find(id);*/
         }
 
         public void Create(LangEstonian item)
@@ -67,6 +67,7 @@ namespace Repository.Repos
         public void Update(LangEstonian item)
         {
             db.Entry(item).State = EntityState.Modified;
+            Save();
         }
     }
 }
