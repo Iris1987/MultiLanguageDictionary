@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Services
 {
-    public class RusEstService : IGenericTranslate<TranslationRusEst>, IGenericService<TranslationRusEst>
+    public class RusEstService : IGenericTranslate<TranslationRusEst>
     {
 
         private readonly IGeneric<TranslationRusEst> repository;

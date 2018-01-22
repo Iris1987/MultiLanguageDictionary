@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using BaseEntities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Models;
 using Services;
+using Services.Interfaces;
 
 namespace MVC.Controllers
 {
@@ -12,95 +16,99 @@ namespace MVC.Controllers
     {
 
         private readonly EngEstService engest;
-        //private readonly IGeneric<TranslationEngEst> generic;
-        //private readonly IGenericTranslate<TranslationEngEst> translation;
-        public EngEstController(/*TranslationEngEst generic, TranslationEngEst translation,*/ EngEstService engest)
+        
+        private readonly IGenericTranslate<TranslationEngEst> translation;
+        public EngEstController( IGenericTranslate<TranslationEngEst> tr, EngEstService engest)
         {
             this.engest = engest;
-            //this.generic = generic;
-            //this.translation = translation;
+            
+            this.translation = tr;
 
         }
 
         // GET: EngEst
-        public ActionResult Index()
+        [HttpGet]
+        public IActionResult Index()
         {
-            return View();
+            List<EngEstViewModel> model = new List<EngEstViewModel>();
+            translation.GetAll().ToList().ForEach(x =>
+            {
+                TranslationEngEst trans = translation.GetByID(x.IdTranslation);
+                EngEstViewModel vm = new EngEstViewModel();
+            
+            model.Add(vm);
+
+            });
+  
+            return View(model);
         }
 
-        // GET: EngEst/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+       
         // GET: EngEst/Create
-        public ActionResult Create()
+        [HttpGet]
+        public IActionResult Create()
         {
-            return View();
+            EngEstViewModel model = new EngEstViewModel();
+            return PartialView("_AddĒngEst", model);
         }
 
         // POST: EngEst/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create()
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(EngEstViewModel ee)
         {
+            
             try
             {
                if(ModelState.IsValid)
                 {
-                    engest.                }
+                    TranslationEngEst trans = new TranslationEngEst();
+                    translation.Create(trans);
+                    //engest.Create(ee);
+
+                    //return RedirectToAction(nameof(Index));
+                }
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Unable to save changes. " +
+            "Try again, and if the problem persists " +
+            "see your system administrator.");
+                
             }
+            return View(ee);
         }
 
         // GET: EngEst/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult Update(int id)
         {
-            return View();
+            EngEstViewModel model = new EngEstViewModel();
+
+
+            return PartialView("_UpdateEngEst", model);
         }
 
         // POST: EngEst/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Update(EngEstViewModel ee)
         {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            TranslationEngEst trans = new TranslationEngEst();
+
+            translation.Update(trans);
+
+            return View(ee);
         }
 
-        // GET: EngEst/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: EngEst/Delete/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public void Delete(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            engest.Delete(id);
+
         }
     }
 }

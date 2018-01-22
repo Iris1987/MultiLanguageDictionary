@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Services
 {
-    public class EngEstService : IGenericTranslate<TranslationEngEst>, IGenericService<TranslationEngEst>
+    public class EngEstService : IGenericTranslate<TranslationEngEst>
     {
         private readonly IGeneric<TranslationEngEst> repository;
         

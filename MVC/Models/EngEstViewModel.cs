@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseEntities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +19,32 @@ namespace MVC.Models
         public PartOfSpeechViewModel IdPartNavigation { get; set; }
         public EngViewModel IdWordEngNavigation { get; set; }
         public EstViewModel IdWordEstNavigation { get; set; }
+
+
+        public static implicit operator EngEstViewModel(TranslationEngEst engest)
+        {
+            return new EngEstViewModel
+            {
+                IdTranslation = engest.IdTranslation,
+                IdWordEng = engest.IdWordEng,
+                IdWordEst = engest.IdWordEst,
+                IdCategory = engest.IdCategory,
+                IdPart = engest.IdPart,
+                Example = engest.Example
+            };
+        }
+
+        public static implicit operator TranslationEngEst(EngEstViewModel vm)
+        {
+            return new TranslationEngEst
+            {
+                IdTranslation = vm.IdTranslation,
+                IdWordEng = vm.IdWordEng,
+                IdWordEst = vm.IdWordEst,
+                IdCategory = vm.IdCategory,
+                IdPart = vm.IdPart,
+                Example = vm.Example
+            };
+        }
     }
 }

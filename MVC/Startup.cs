@@ -37,13 +37,13 @@ namespace MVC
             services.AddTransient< IGenericService < LangEstonian >, EstService >();
             services.AddTransient< IGenericService < LangRussian >, RusService >();
 
-            services.AddTransient< IGenericService<TranslationEngEst>, EngEstService >();
+            
             services.AddTransient<IGenericTranslate<TranslationEngEst>, EngEstService>();
 
-            services.AddTransient<IGenericService<TranslationEngRus>,EngRusService>();
+            
             services.AddTransient<IGenericTranslate<TranslationEngRus>, EngRusService>();
 
-            services.AddTransient<IGenericService<TranslationRusEst>, RusEstService>();
+            
             services.AddTransient<IGenericTranslate<TranslationRusEst>, RusEstService>();
         }
 
