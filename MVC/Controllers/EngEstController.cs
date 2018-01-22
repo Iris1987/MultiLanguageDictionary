@@ -2,64 +2,54 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using BaseEntities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MVC.Models;
-using Repository.Interfaces;
 using Services;
-using Services.Interfaces;
 
 namespace MVC.Controllers
 {
-    public class ControllerEngEstController : Controller
+    public class EngEstController : Controller
     {
-        private readonly EngEstService engestS;
+
+        private readonly EngEstService engest;
         //private readonly IGeneric<TranslationEngEst> generic;
         //private readonly IGenericTranslate<TranslationEngEst> translation;
-        public ControllerEngEstController(/*TranslationEngEst generic, TranslationEngEst translation,*/ EngEstService engest)
+        public EngEstController(/*TranslationEngEst generic, TranslationEngEst translation,*/ EngEstService engest)
         {
-            this.engestS = engest;
+            this.engest = engest;
             //this.generic = generic;
             //this.translation = translation;
 
         }
 
-
-        // GET: ControllerEngEst
+        // GET: EngEst
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ControllerEngEst/Details/5
-        public IActionResult Details(int id)
+        // GET: EngEst/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ControllerEngEst/Create
-        public IActionResult Create()
+        // GET: EngEst/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ControllerEngEst/Create
+        // POST: EngEst/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EngEstViewModel engest)
+        public ActionResult Create()
         {
             try
             {
-                if (ModelState.IsValid)
+               if(ModelState.IsValid)
                 {
-
-                    engestS.Create(engest);
-                    return RedirectToAction("Index", "Employee");
-                }
-                return View();
-
-                return RedirectToAction(nameof(Index));
+                    engest.                }
             }
             catch
             {
@@ -67,13 +57,13 @@ namespace MVC.Controllers
             }
         }
 
-        // GET: ControllerEngEst/Edit/5
+        // GET: EngEst/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ControllerEngEst/Edit/5
+        // POST: EngEst/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -90,13 +80,13 @@ namespace MVC.Controllers
             }
         }
 
-        // GET: ControllerEngEst/Delete/5
+        // GET: EngEst/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ControllerEngEst/Delete/5
+        // POST: EngEst/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

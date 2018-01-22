@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 using BaseEntities.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Repository.Interfaces;
+using Repository.Repos;
 using Services;
-
+using Services.Interfaces;
 
 namespace MVC
 {
@@ -25,16 +28,23 @@ namespace MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<MyContext>();
-            services.AddTransient<CategoryService>();
-            services.AddTransient<SubcategoryService>();
-            services.AddTransient<PartOfSpeechService>();
-            services.AddTransient<EngService>();
-            services.AddTransient<EstService>();
-            services.AddTransient<RusService>();
-            services.AddTransient<EngEstService>();
-            services.AddTransient<EngRusService>();
-            services.AddTransient<RusEstService>();
+            services.AddDbContext<MyContext>
+            (options=>options.UseSqlServer(Configuration.GetConnectionString("Data Source=mail.vk.edu.ee;Initial Catalog=db_Koroljova;Persist Security Info=True;User ID=t143447;Password=t143447")));
+            services.AddTransient<IGenericService<Category>, CategoryService>();
+            services.AddTransient< IGenericService < Subcategory > ,SubcategoryService >();
+            services.AddTransient< IGenericService < PartOfSpeech > ,PartOfSpeechService >();
+            services.AddTransient< IGenericService < LangEnglish > ,EngService >();
+            services.AddTransient< IGenericService < LangEstonian >, EstService >();
+            services.AddTransient< IGenericService < LangRussian >, RusService >();
+
+            services.AddTransient< IGenericService<TranslationEngEst>, EngEstService >();
+            services.AddTransient<IGenericTranslate<TranslationEngEst>, EngEstService>();
+
+            services.AddTransient<IGenericService<TranslationEngRus>,EngRusService>();
+            services.AddTransient<IGenericTranslate<TranslationEngRus>, EngRusService>();
+
+            services.AddTransient<IGenericService<TranslationRusEst>, RusEstService>();
+            services.AddTransient<IGenericTranslate<TranslationRusEst>, RusEstService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

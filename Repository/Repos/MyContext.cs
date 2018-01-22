@@ -1,8 +1,9 @@
 ﻿using System;
+using BaseEntities.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BaseEntities.Models
+namespace Repository.Repos
 {
     public partial class MyContext : DbContext
     {
@@ -16,14 +17,19 @@ namespace BaseEntities.Models
         public virtual DbSet<TranslationEngRus> TranslationEngRuss { get; set; }
         public virtual DbSet<TranslationRusEst> TranslationRusEsts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        public MyContext(DbContextOptions<MyContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Data Source=mail.vk.edu.ee;Initial Catalog=db_Koroljova;Persist Security Info=True;User ID=t143447;Password=t143447");
-            }
         }
+
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        ////#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //                optionsBuilder.UseSqlServer(@"Data Source=mail.vk.edu.ee;Initial Catalog=db_Koroljova;Persist Security Info=True;User ID=t143447;Password=t143447");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
