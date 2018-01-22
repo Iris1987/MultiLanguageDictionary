@@ -62,6 +62,7 @@ namespace Repository.Repos
         public void Create(LangRussian item)
         {
             db.LangRussians.Add(item);
+            Save();
         }
 
         public void Update(LangRussian item)

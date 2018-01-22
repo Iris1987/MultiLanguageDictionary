@@ -65,6 +65,7 @@ namespace Repository.Repos
         public void Create(Category item)
         {
             db.Categorys.Add(item);
+            Save();
         }
 
         public void Update(Category item)

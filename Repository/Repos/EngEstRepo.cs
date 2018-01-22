@@ -62,6 +62,7 @@ namespace Repository.Repos
         public void Create(TranslationEngEst item)
         {
             db.TranslationEngEsts.Add(item);
+            Save();
         }
 
         public void Update(TranslationEngEst item)

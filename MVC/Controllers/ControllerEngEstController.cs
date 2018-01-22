@@ -26,13 +26,13 @@ namespace MVC.Controllers
         }
 
         // GET: ControllerEngEst/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int id)
         {
             return View();
         }
 
         // GET: ControllerEngEst/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }

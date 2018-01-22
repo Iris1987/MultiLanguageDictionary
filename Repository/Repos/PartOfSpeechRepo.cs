@@ -62,6 +62,7 @@ namespace Repository.Repos
         public void Create(PartOfSpeech item)
         {
             db.PartOfSpeechs.Add(item);
+            Save();
         }
 
         public void Update(PartOfSpeech item)

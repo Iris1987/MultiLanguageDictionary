@@ -62,6 +62,7 @@ namespace Repository.Repos
         public void Create(LangEstonian item)
         {
             db.LangEstonians.Add(item);
+            Save();
         }
 
         public void Update(LangEstonian item)
