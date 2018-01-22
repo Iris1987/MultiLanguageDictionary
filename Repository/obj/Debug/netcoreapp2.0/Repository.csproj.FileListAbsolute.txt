@@ -6,3 +6,6 @@ C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\obj\Debug\netcoreap
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\obj\Debug\netcoreapp2.0\Repository.AssemblyInfo.cs
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\obj\Debug\netcoreapp2.0\Repository.dll
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\obj\Debug\netcoreapp2.0\Repository.pdb
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\bin\Debug\netcoreapp2.0\BaseEntities.dll
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\bin\Debug\netcoreapp2.0\BaseEntities.pdb
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\Repository\obj\Debug\netcoreapp2.0\Repository.csprojResolveAssemblyReference.cache

@@ -9,3 +9,9 @@ C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\obj\Debug\netcoreapp2.0\MV
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\BaseEntities.dll
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\Repository.dll
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\Services.dll
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\Services.pdb
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\BaseEntities.pdb
+C:\Users\Elil\Desktop\MVC\MultiLanguageDictionary\MVC\bin\Debug\netcoreapp2.0\Repository.pdb
