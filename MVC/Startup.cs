@@ -29,7 +29,19 @@ namespace MVC
         {
             services.AddMvc();
             services.AddDbContext<MyContext>
-            (options=>options.UseSqlServer(Configuration.GetConnectionString("Data Source=mail.vk.edu.ee;Initial Catalog=db_Koroljova;Persist Security Info=True;User ID=t143447;Password=t143447")));
+            (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddTransient<IGeneric<Category>, CategoryRepo>();
+            services.AddTransient<IGeneric<TranslationEngEst>, EngEstRepo>();
+            services.AddTransient<IGeneric<LangEnglish>, EngRepo>();
+            services.AddTransient<IGeneric<TranslationEngRus>, EngRusRepo>();
+            services.AddTransient<IGeneric<LangEstonian>, EstRepo>();
+            services.AddTransient<IGeneric<PartOfSpeech>, PartOfSpeechRepo>();
+            services.AddTransient<IGeneric<TranslationRusEst>, RusEstRepo>();
+            services.AddTransient<IGeneric<LangRussian>, RusRepo>();
+            services.AddTransient<IGeneric<Subcategory>, SubcategoryRepo>();
+
             services.AddTransient<IGenericService<Category>, CategoryService>();
             services.AddTransient< IGenericService < Subcategory > ,SubcategoryService >();
             services.AddTransient< IGenericService < PartOfSpeech > ,PartOfSpeechService >();
@@ -67,6 +79,9 @@ namespace MVC
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                   name: "EngEst",
+                   template: "{controller=EngEstView}/{action=Index}/{id?}");
             });
         }
     }

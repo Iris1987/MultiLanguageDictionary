@@ -15,12 +15,12 @@ namespace MVC.Controllers
     public class EngEstController : Controller
     {
 
-        private readonly EngEstService engest;
+        //private readonly EngEstService engest;
         
         private readonly IGenericTranslate<TranslationEngEst> translation;
-        public EngEstController( IGenericTranslate<TranslationEngEst> tr, EngEstService engest)
+        public EngEstController( IGenericTranslate<TranslationEngEst> tr /*EngEstService engest*/)
         {
-            this.engest = engest;
+            //this.engest = engest;
             
             this.translation = tr;
 
@@ -107,7 +107,7 @@ namespace MVC.Controllers
         public void Delete(int id)
         {
 
-            engest.Delete(id);
+            translation.Delete(id);
 
         }
     }

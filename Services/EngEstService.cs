@@ -52,8 +52,8 @@ namespace Services
         public TranslationEngEst GetByID(int id)
         { 
 
-            var engest = repository.GetByID(id);
-            return engest;
+            return repository.GetByID(id);
+             
         }
 
         public IEnumerable<TranslationEngEst> GetBySubcategory(string word)
