@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EngEstViewModel>
+@using MVC.Models
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-striped table-condensed">
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IdWordEngNavigation.Word)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdWordEstNavigation.Word)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdCategoryNavigation.Subcategoryname)</td>
+                <td>
+                    <a id="editUserModal" data-toggle="modal" asp-action="EditUser" asp-route-id="@item.IdTranslation" data-target="#modal-action-user"
+                       class="btn btn-info">
+                        <i class="glyphicon glyphicon-pencil"></i>  Edit
+                    </a>
+                    <a id="deleteUserModal" data-toggle="modal" asp-action="DeleteUser" asp-route-id="@item.IdTranslation" data-target="#modal-action-user" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>  Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

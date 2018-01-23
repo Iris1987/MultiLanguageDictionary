@@ -79,9 +79,7 @@ namespace MVC
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute(
-                   name: "EngEst",
-                   template: "{controller=EngEstView}/{action=Index}/{id?}");
+                
             });
         }
     }

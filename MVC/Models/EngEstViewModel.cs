@@ -30,7 +30,14 @@ namespace MVC.Models
                 IdWordEst = engest.IdWordEst,
                 IdCategory = engest.IdCategory,
                 IdPart = engest.IdPart,
-                Example = engest.Example
+                Example = engest.Example,
+
+                IdCategoryNavigation = engest.IdCategoryNavigation,
+                IdPartNavigation = engest.IdPartNavigation,
+                IdWordEngNavigation = engest.IdWordEngNavigation,
+                IdWordEstNavigation = engest.IdWordEstNavigation
+                
+                
             };
         }
 
@@ -43,7 +50,13 @@ namespace MVC.Models
                 IdWordEst = vm.IdWordEst,
                 IdCategory = vm.IdCategory,
                 IdPart = vm.IdPart,
-                Example = vm.Example
+                Example = vm.Example,
+
+                IdCategoryNavigation = vm.IdCategoryNavigation,
+                IdPartNavigation = vm.IdPartNavigation,
+                IdWordEngNavigation = vm.IdWordEngNavigation,
+                IdWordEstNavigation = vm.IdWordEstNavigation
+
             };
         }
     }

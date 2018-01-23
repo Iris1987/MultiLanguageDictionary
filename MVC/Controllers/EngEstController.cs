@@ -49,7 +49,7 @@ namespace MVC.Controllers
         public IActionResult Create()
         {
             EngEstViewModel model = new EngEstViewModel();
-            return PartialView("_AddĒngEst", model);
+            return PartialView("_AddEngEst", model);
         }
 
         // POST: EngEst/Create

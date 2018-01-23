@@ -14,5 +14,7 @@ namespace BaseEntities.Models
         public string Categoryname { get; set; }
 
         public ICollection<Subcategory> Subcategory { get; set; }
+
+     
     }
 }
