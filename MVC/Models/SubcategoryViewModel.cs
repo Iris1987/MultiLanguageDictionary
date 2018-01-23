@@ -20,30 +20,30 @@ namespace MVC.Models
         public ICollection<RusEstViewModel> TranslationRusEst { get; set; }
 
 
-        public static implicit operator SubcategoryViewModel(Subcategory sub)
-        {
-            return new SubcategoryViewModel
-            {
-                IdSubcategory = sub.IdSubcategory,
-                Subcategoryname = sub.Subcategoryname,
-                IdCategory = sub.IdCategory,
+        //public static implicit operator SubcategoryViewModel(Subcategory sub)
+        //{
+        //    return new SubcategoryViewModel
+        //    {
+        //        IdSubcategory = sub.IdSubcategory,
+        //        Subcategoryname = sub.Subcategoryname,
+        //        IdCategory = sub.IdCategory,
 
-                IdCategoryNavigation = sub.IdCategoryNavigation
+        //        IdCategoryNavigation = sub.IdCategoryNavigation
 
-            };
-        }
+        //    };
+        //}
 
-        public static implicit operator Subcategory(SubcategoryViewModel suby)
-        {
-            return new SubcategoryViewModel
-            {
-                IdSubcategory = suby.IdSubcategory,
-                Subcategoryname = suby.Subcategoryname,
-                IdCategory = suby.IdCategory,
+        //public static implicit operator Subcategory(SubcategoryViewModel suby)
+        //{
+        //    return new SubcategoryViewModel
+        //    {
+        //        IdSubcategory = suby.IdSubcategory,
+        //        Subcategoryname = suby.Subcategoryname,
+        //        IdCategory = suby.IdCategory,
 
-                IdCategoryNavigation = suby.IdCategoryNavigation
+        //        IdCategoryNavigation = suby.IdCategoryNavigation
 
-            };
-        }
+        //    };
+        //}
     }
 }

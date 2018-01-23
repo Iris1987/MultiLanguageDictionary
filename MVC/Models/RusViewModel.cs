@@ -16,23 +16,23 @@ namespace MVC.Models
         public ICollection<EngRusViewModel> TranslationEngRus { get; set; }
         public ICollection<RusEstViewModel> TranslationRusEst { get; set; }
 
-        public static implicit operator RusViewModel(LangRussian item)
-        {
-            return new RusViewModel
-            {
-                IdWord = item.IdWord,
-                Word = item.Word
+        //public static implicit operator RusViewModel(LangRussian item)
+        //{
+        //    return new RusViewModel
+        //    {
+        //        IdWord = item.IdWord,
+        //        Word = item.Word
 
-            };
-        }
-        public static implicit operator LangRussian(RusViewModel item)
-        {
-            return new LangRussian
-            {
-                IdWord = item.IdWord,
-                Word = item.Word
+        //    };
+        //}
+        //public static implicit operator LangRussian(RusViewModel item)
+        //{
+        //    return new LangRussian
+        //    {
+        //        IdWord = item.IdWord,
+        //        Word = item.Word
 
-            };
-        }
+        //    };
+        //}
     }
 }

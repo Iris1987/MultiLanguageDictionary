@@ -51,13 +51,13 @@ namespace MVC.Controllers
             {
                 //TranslationEngEst trans = translation.GetByID(x.IdTranslation);
                 //EngEstViewModel vm = new EngEstViewModel();
-                var stuff = mapper.Map<EngEstViewModel, TranslationEngEst>(translation.GetByID(x.IdTranslation));
+                var stuff = mapper.Map<TranslationEngEst,EngEstViewModel>(translation.GetByID(x.IdTranslation));
             
             model.Add(stuff);
 
             });
   
-            return View(model);
+            return View(model);//model
         }
 
        
@@ -65,8 +65,10 @@ namespace MVC.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            EngEstViewModel model = new EngEstViewModel();
-            return PartialView("_AddEngEst", model);
+            //EngEstViewModel model = new EngEstViewModel();
+            //return PartialView("_AddEngEst", model);
+
+            return View();
         }
 
         // POST: EngEst/Create
@@ -79,9 +81,12 @@ namespace MVC.Controllers
             {
                if(ModelState.IsValid)
                 {
-                    TranslationEngEst trans = new TranslationEngEst();
-                    translation.Create(trans);
-                    //engest.Create(ee);
+                    translation.Create(mapper.Map<EngEstViewModel,TranslationEngEst>(ee));
+
+
+                    //TranslationEngEst trans = new TranslationEngEst();
+                    //translation.Create(trans);
+                    
 
                     //return RedirectToAction(nameof(Index));
                 }
@@ -99,10 +104,12 @@ namespace MVC.Controllers
         // GET: EngEst/Edit/5
         public IActionResult Update(int id)
         {
-            EngEstViewModel model = new EngEstViewModel();
+            //EngEstViewModel model = new EngEstViewModel();
 
 
-            return PartialView("_UpdateEngEst", model);
+            //return PartialView("_UpdateEngEst", model);
+
+            return View();
         }
 
         // POST: EngEst/Edit/5
@@ -111,9 +118,9 @@ namespace MVC.Controllers
         public ActionResult Update(EngEstViewModel ee)
         {
 
-            TranslationEngEst trans = new TranslationEngEst();
+            //TranslationEngEst trans = new TranslationEngEst();
 
-            translation.Update(trans);
+            translation.Update(mapper.Map<EngEstViewModel,TranslationEngEst>(ee));
 
             return View(ee);
         }

@@ -21,41 +21,41 @@ namespace MVC.Models
         public RusViewModel IdWordRusNavigation { get; set; }
 
 
-        public static implicit operator EngRusViewModel(TranslationEngRus item)
-        {
-            return new EngRusViewModel
-            {
-                IdTranslation = item.IdTranslation,
-                IdWordEng = item.IdWordEng,
-                IdWordRus = item.IdWordRus,
-                IdCategory = item.IdCategory,
-                IdPart = item.IdPart,
-                Example = item.Example,
+        //public static implicit operator EngRusViewModel(TranslationEngRus item)
+        //{
+        //    return new EngRusViewModel
+        //    {
+        //        IdTranslation = item.IdTranslation,
+        //        IdWordEng = item.IdWordEng,
+        //        IdWordRus = item.IdWordRus,
+        //        IdCategory = item.IdCategory,
+        //        IdPart = item.IdPart,
+        //        Example = item.Example,
 
-                IdCategoryNavigation = item.IdCategoryNavigation,
-                IdPartNavigation = item.IdPartNavigation,
-                IdWordEngNavigation = item.IdWordEngNavigation,
-                IdWordRusNavigation = item.IdWordRusNavigation
+        //        IdCategoryNavigation = item.IdCategoryNavigation,
+        //        IdPartNavigation = item.IdPartNavigation,
+        //        IdWordEngNavigation = item.IdWordEngNavigation,
+        //        IdWordRusNavigation = item.IdWordRusNavigation
 
-            };
-        }
+        //    };
+        //}
 
-        public static implicit operator TranslationEngRus(EngRusViewModel item)
-        {
-            return new TranslationEngRus
-            {
-                IdTranslation = item.IdTranslation,
-                IdWordEng = item.IdWordEng,
-                IdWordRus = item.IdWordRus,
-                IdCategory = item.IdCategory,
-                IdPart = item.IdPart,
-                Example = item.Example,
+        //public static implicit operator TranslationEngRus(EngRusViewModel item)
+        //{
+        //    return new TranslationEngRus
+        //    {
+        //        IdTranslation = item.IdTranslation,
+        //        IdWordEng = item.IdWordEng,
+        //        IdWordRus = item.IdWordRus,
+        //        IdCategory = item.IdCategory,
+        //        IdPart = item.IdPart,
+        //        Example = item.Example,
 
-                IdCategoryNavigation = item.IdCategoryNavigation,
-                IdPartNavigation = item.IdPartNavigation,
-                IdWordEngNavigation = item.IdWordEngNavigation,
-                IdWordRusNavigation = item.IdWordRusNavigation
-            };
-        }
+        //        IdCategoryNavigation = item.IdCategoryNavigation,
+        //        IdPartNavigation = item.IdPartNavigation,
+        //        IdWordEngNavigation = item.IdWordEngNavigation,
+        //        IdWordRusNavigation = item.IdWordRusNavigation
+        //    };
+        //}
     }
 }

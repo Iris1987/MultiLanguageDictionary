@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "0ba4e1d2bdefddba11480a04b27707cd0b592174"
+    "signature": "3fe5801f6e8996479630d4f55c5c2be6d547b662"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
       "BaseEntities/1.0.0": {
         "dependencies": {
           "AutoMapper": "6.2.2",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
           "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.5",
@@ -35,6 +36,16 @@
         },
         "runtime": {
           "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+        "dependencies": {
+          "AutoMapper": "6.2.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.Razor.Extensions/2.0.1": {
@@ -140,6 +151,21 @@
         }
       },
       "Microsoft.CSharp/4.4.0": {},
+      "Microsoft.DotNet.PlatformAbstractions/2.0.0": {
+        "dependencies": {
+          "System.AppContext": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "2.0.0",
@@ -232,6 +258,18 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/2.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/2.0.0": {
+        "dependencies": {
+          "Microsoft.DotNet.PlatformAbstractions": "2.0.0",
+          "Newtonsoft.Json": "10.0.1",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Linq": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/2.0.0": {
@@ -1110,6 +1148,26 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
+      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
       "System.Runtime.Numerics/4.3.0": {
         "dependencies": {
           "System.Globalization": "4.3.0",
@@ -1500,6 +1558,13 @@
       "path": "automapper/6.2.2",
       "hashPath": "automapper.6.2.2.nupkg.sha512"
     },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-528nEpAwniNn8Z6Ae9qTiM/kN4f0BxmWE9mDMEkqKKGxbuElmv6Kj9DVvTXECJkIt6ARerb9+vYbOifNpcwvXQ==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/3.2.0",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.3.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Mvc.Razor.Extensions/2.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1562,6 +1627,13 @@
       "sha512": "sha512-vvVR/B08YVghQ4jHEloxqw2ZWzEGE1AOA5E0DioUM3ujbXz6FD3AfB/0Jl2ohJPd0nXYGwmPe1En6HTsSriq1A==",
       "path": "microsoft.csharp/4.4.0",
       "hashPath": "microsoft.csharp.4.4.0.nupkg.sha512"
+    },
+    "Microsoft.DotNet.PlatformAbstractions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l5tDOSom+qpx4pDEoIcqMHnGC7jJ4Uq1DiJ6St/bn0rb5xIh/q4u7OQTIcE1k+1o7E0lYnJA4ZluzS6HGFr4zw==",
+      "path": "microsoft.dotnet.platformabstractions/2.0.0",
+      "hashPath": "microsoft.dotnet.platformabstractions.2.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/2.0.1": {
       "type": "package",
@@ -1639,6 +1711,13 @@
       "sha512": "sha512-eUdJ0Q/GfVyUJc0Jal5L1QZLceL78pvEM9wEKcHeI24KorqMDoVX+gWsMGLulQMfOwsUaPtkpQM2pFERTzSfSg==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyModel/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DyZ/Ibv/SZRMpYhaDCj0nlA+Qe52NyEL51onxAL94bUPauX0jxrK6jyxXN5DI8NVbzE5sOUWZYjTduNqUdbB+g==",
+      "path": "microsoft.extensions.dependencymodel/2.0.0",
+      "hashPath": "microsoft.extensions.dependencymodel.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/2.0.0": {
       "type": "package",
@@ -2276,6 +2355,13 @@
       "sha512": "sha512-iJ8qZC6i3G9W3aLlSPjn0gydIWTst4vuDw2aHep3q3m5zQaID72J3ZdBs+y3Bm6UKn8ZWiny/OxDosXa/6Fj4Q==",
       "path": "system.runtime.interopservices/4.3.0",
       "hashPath": "system.runtime.interopservices.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hWPhJxc453RCa8Z29O91EmfGeZIHX1ZH2A8L6lYQVSaKzku2DfArSfMEb1/MYYzPQRJZeu0c9dmYeJKxW5Fgng==",
+      "path": "system.runtime.interopservices.runtimeinformation/4.0.0",
+      "hashPath": "system.runtime.interopservices.runtimeinformation.4.0.0.nupkg.sha512"
     },
     "System.Runtime.Numerics/4.3.0": {
       "type": "package",

@@ -15,27 +15,27 @@ namespace MVC.Models
 
         public SubcategoryViewModel Subcategory { get; set; }
 
-        public static implicit operator CategoryViewModel(Category cat)
-        {
-            return new CategoryViewModel
-            {
-                IdCategory = cat.IdCategory,
-                Categoryname = cat.Categoryname//,
+        //public static implicit operator CategoryViewModel(Category cat)
+        //{
+        //    return new CategoryViewModel
+        //    {
+        //        IdCategory = cat.IdCategory,
+        //        Categoryname = cat.Categoryname//,
 
-               // Subcategory = cat.Subcategory
+        //       // Subcategory = cat.Subcategory
 
-            };
-        }
-        public static implicit operator Category(CategoryViewModel cat)
-        {
-            return new Category
-            {
-                IdCategory = cat.IdCategory,
-                Categoryname = cat.Categoryname//,
+        //    };
+        //}
+        //public static implicit operator Category(CategoryViewModel cat)
+        //{
+        //    return new Category
+        //    {
+        //        IdCategory = cat.IdCategory,
+        //        Categoryname = cat.Categoryname//,
 
-               // Subcategory = cat.Subcategory
+        //       // Subcategory = cat.Subcategory
 
-            };
-        }
+        //    };
+        //}
     }
 }

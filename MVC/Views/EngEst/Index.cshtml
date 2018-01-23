@@ -12,8 +12,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdWordEngNavigation.Word)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdWordEstNavigation.Word)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdCategory.Value @*IdWordEngNavigation.Word*@)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdWordEst @*IdWordEstNavigation.Word*@)</td>
                 <td>@Html.DisplayFor(modelItem => item.IdCategoryNavigation.Subcategoryname)</td>
                 <td>
                     <a id="editUserModal" data-toggle="modal" asp-action="EditUser" asp-route-id="@item.IdTranslation" data-target="#modal-action-user"

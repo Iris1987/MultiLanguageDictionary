@@ -18,24 +18,24 @@ namespace MVC.Models
         public ICollection<RusEstViewModel> TranslationRusEst { get; set; }
 
 
-        public static implicit operator PartOfSpeechViewModel(PartOfSpeech item)
-        {
-            return new PartOfSpeechViewModel
-            {
-                IdPart = item.IdPart,
-                Partname = item.Partname
+        //public static implicit operator PartOfSpeechViewModel(PartOfSpeech item)
+        //{
+        //    return new PartOfSpeechViewModel
+        //    {
+        //        IdPart = item.IdPart,
+        //        Partname = item.Partname
 
-            };
-        }
+        //    };
+        //}
 
-        public static implicit operator PartOfSpeech(PartOfSpeechViewModel item)
-        {
-            return new PartOfSpeech
-            {
-                IdPart = item.IdPart,
-                Partname = item.Partname
+        //public static implicit operator PartOfSpeech(PartOfSpeechViewModel item)
+        //{
+        //    return new PartOfSpeech
+        //    {
+        //        IdPart = item.IdPart,
+        //        Partname = item.Partname
 
-            };
-        }
+        //    };
+        //}
     }
 }
