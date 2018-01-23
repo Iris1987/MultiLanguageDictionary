@@ -18,14 +18,25 @@ namespace MVC.Controllers
 
         //private readonly EngEstService engest;
         private readonly IMapper mapper;
-        
+
         private readonly IGenericTranslate<TranslationEngEst> translation;
-        public EngEstController( IGenericTranslate<TranslationEngEst> tr /*EngEstService engest*/,IMapper mapper)
+        private readonly IGenericService<LangEnglish> langEnglish;
+        private readonly IGenericService<LangEstonian> langEstonian;
+        private readonly IGenericService<PartOfSpeech> part;
+        private readonly IGenericService<Subcategory> sub;
+        public EngEstController(IGenericTranslate<TranslationEngEst> tr, IMapper mapper,
+            IGenericService<LangEnglish> langEnglish,
+            IGenericService<LangEstonian> langEstonian,
+             IGenericService<PartOfSpeech> part,
+             IGenericService<Subcategory> sub)
         {
             //this.engest = engest;
             this.mapper = mapper;
             this.translation = tr;
-
+            this.langEnglish = langEnglish;
+            this.langEstonian = langEstonian;
+            this.part = part;
+            this.sub = sub;
         }
 
         // GET: EngEst
@@ -47,28 +58,27 @@ namespace MVC.Controllers
             //return View(registerVM);
 
             List<EngEstViewModel> model = new List<EngEstViewModel>();
-            translation.GetAll().ToList().ForEach(x =>
+            translation.GetAll().ToList().OrderBy(x=>x.IdWordEngNavigation.Word).ToList().ForEach(x =>
             {
                 //TranslationEngEst trans = translation.GetByID(x.IdTranslation);
                 //EngEstViewModel vm = new EngEstViewModel();
-                var stuff = mapper.Map<TranslationEngEst,EngEstViewModel>(translation.GetByID(x.IdTranslation));
-            
-            model.Add(stuff);
+                var stuff = mapper.Map<TranslationEngEst, EngEstViewModel>(translation.GetByID(x.IdTranslation));
+
+                model.Add(stuff);
 
             });
-  
+            var wordEng = langEnglish.GetAll().ToList();
+            var wordEst = langEstonian.GetAll().ToList();
+            var parts = part.GetAll().ToList();
+            var subs = sub.GetAll();
+
+            ViewBag.WordEng = wordEng;
+            ViewBag.WordEst = wordEst;
+            ViewBag.Parts = parts;
+            ViewBag.Subs = subs;
+
+
             return View(model);//model
-        }
-
-       
-        // GET: EngEst/Create
-        [HttpGet]
-        public IActionResult Create()
-        {
-            //EngEstViewModel model = new EngEstViewModel();
-            //return PartialView("_AddEngEst", model);
-
-            return View();
         }
 
         // POST: EngEst/Create
@@ -76,18 +86,16 @@ namespace MVC.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Create(EngEstViewModel ee)
         {
-            
+
             try
             {
-               if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
-                    translation.Create(mapper.Map<EngEstViewModel,TranslationEngEst>(ee));
+                    translation.Create(mapper.Map<EngEstViewModel, TranslationEngEst>(ee));
 
-
+                
                     //TranslationEngEst trans = new TranslationEngEst();
                     //translation.Create(trans);
-                    
-
                     //return RedirectToAction(nameof(Index));
                 }
             }
@@ -96,22 +104,11 @@ namespace MVC.Controllers
                 ModelState.AddModelError("", "Unable to save changes. " +
             "Try again, and if the problem persists " +
             "see your system administrator.");
-                
+
             }
-            return View(ee);
+           return  RedirectToAction("Index");
         }
-
-        // GET: EngEst/Edit/5
-        public IActionResult Update(int id)
-        {
-            //EngEstViewModel model = new EngEstViewModel();
-
-
-            //return PartialView("_UpdateEngEst", model);
-
-            return View();
-        }
-
+        
         // POST: EngEst/Edit/5
         [HttpPost]
         //[ValidateAntiForgeryToken]
@@ -120,12 +117,12 @@ namespace MVC.Controllers
 
             //TranslationEngEst trans = new TranslationEngEst();
 
-            translation.Update(mapper.Map<EngEstViewModel,TranslationEngEst>(ee));
+            translation.Update(mapper.Map<EngEstViewModel, TranslationEngEst>(ee));
 
-            return View(ee);
+            return RedirectToAction("Index");
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public void Delete(int id)

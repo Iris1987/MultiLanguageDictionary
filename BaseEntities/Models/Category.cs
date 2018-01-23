@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseEntities.Models
 {
@@ -9,7 +10,7 @@ namespace BaseEntities.Models
         {
             Subcategory = new HashSet<Subcategory>();
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCategory { get; set; }
         public string Categoryname { get; set; }
 

@@ -13,8 +13,8 @@ namespace MVC.Models
         public int IdWord { get; set; }
         public string Word { get; set; }
 
-        public ICollection<EngEstViewModel> TranslationEngEst { get; set; }
-        public ICollection<RusEstViewModel> TranslationRusEst { get; set; }
+        public ICollection<TranslationEngEst> TranslationEngEst { get; set; }
+        public ICollection<TranslationRusEst> TranslationRusEst { get; set; }
 
         //public static implicit operator EstViewModel(LangEstonian item)
         //{

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseEntities.Models
 {
     public partial class TranslationEngEst
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdTranslation { get; set; }
         public int IdWordEng { get; set; }
         public int IdWordEst { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseEntities.Models
 {
@@ -11,6 +12,7 @@ namespace BaseEntities.Models
             TranslationEngRus = new HashSet<TranslationEngRus>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdWord { get; set; }
         public string Word { get; set; }
 

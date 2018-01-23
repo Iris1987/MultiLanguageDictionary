@@ -51,7 +51,9 @@ namespace Repository.Repos
 
         public IEnumerable<Subcategory> GetAll()
         {
-            return db.Subcategorys.ToList();
+            return db.Subcategorys
+                .Include(x=>x.IdCategoryNavigation)
+                .ToList();
         }
 
         public Subcategory GetByID(int id)

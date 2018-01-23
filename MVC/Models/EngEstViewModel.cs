@@ -15,10 +15,10 @@ namespace MVC.Models
         public int? IdPart { get; set; }
         public string Example { get; set; }
 
-        public SubcategoryViewModel IdCategoryNavigation { get; set; }
-        public PartOfSpeechViewModel IdPartNavigation { get; set; }
-        public EngViewModel IdWordEngNavigation { get; set; }
-        public EstViewModel IdWordEstNavigation { get; set; }
+        public Subcategory IdCategoryNavigation { get; set; }
+        public PartOfSpeech IdPartNavigation { get; set; }
+        public LangEnglish IdWordEngNavigation { get; set; }
+        public LangEstonian IdWordEstNavigation { get; set; }
 
 
         //public static implicit operator EngEstViewModel(TranslationEngEst engest)

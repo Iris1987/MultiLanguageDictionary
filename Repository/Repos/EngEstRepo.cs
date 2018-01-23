@@ -51,7 +51,11 @@ namespace Repository.Repos
 
         public IEnumerable<TranslationEngEst> GetAll()
         {
-            return db.TranslationEngEsts.ToList();
+            return db.TranslationEngEsts.Include(x => x.IdCategoryNavigation)
+                .Include(x=>x.IdPartNavigation)
+                .Include(x => x.IdWordEngNavigation)
+                .Include(x => x.IdWordEstNavigation)
+                .Include(x => x.IdCategoryNavigation.IdCategoryNavigation).ToList();
         }
 
         public TranslationEngEst GetByID(int id)

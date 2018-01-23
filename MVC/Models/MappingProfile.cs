@@ -36,7 +36,10 @@ namespace MVC.Models
                 .ForMember(des => des.IdWordEstNavigation, x => x.MapFrom(src => src.IdWordEstNavigation))
                 .ForMember(des => des.IdPartNavigation, x => x.MapFrom(src => src.IdPartNavigation))
                 .ForMember(des => des.IdWordRusNavigation, x => x.MapFrom(src => src.IdWordRusNavigation)); 
-            CreateMap<TranslationRusEst, RusEstViewModel>();
+            CreateMap<TranslationRusEst, RusEstViewModel>().ForMember(des => des.IdCategoryNavigation, x => x.MapFrom(src => src.IdCategoryNavigation))
+                .ForMember(des => des.IdWordEstNavigation, x => x.MapFrom(src => src.IdWordEstNavigation))
+                .ForMember(des => des.IdPartNavigation, x => x.MapFrom(src => src.IdPartNavigation))
+                .ForMember(des => des.IdWordRusNavigation, x => x.MapFrom(src => src.IdWordRusNavigation)); ;
 
             CreateMap<EngViewModel, LangEnglish>();
             CreateMap<LangEnglish, EngViewModel>();

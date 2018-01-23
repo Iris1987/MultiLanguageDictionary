@@ -13,9 +13,9 @@ namespace MVC.Models
         public int IdPart { get; set; }
         public string Partname { get; set; }
 
-        public ICollection<EngEstViewModel> TranslationEngEst { get; set; }
-        public ICollection<EngRusViewModel> TranslationEngRus { get; set; }
-        public ICollection<RusEstViewModel> TranslationRusEst { get; set; }
+        public ICollection<TranslationEngEst> TranslationEngEst { get; set; }
+        public ICollection<TranslationEngRus> TranslationEngRus { get; set; }
+        public ICollection<TranslationRusEst> TranslationRusEst { get; set; }
 
 
         //public static implicit operator PartOfSpeechViewModel(PartOfSpeech item)

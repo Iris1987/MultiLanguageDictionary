@@ -13,7 +13,7 @@ namespace MVC.Models
         public int IdCategory { get; set; }
         public string Categoryname { get; set; }
 
-        public SubcategoryViewModel Subcategory { get; set; }
+        public Subcategory Subcategory { get; set; }
 
         //public static implicit operator CategoryViewModel(Category cat)
         //{

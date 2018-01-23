@@ -2,29 +2,39 @@
 @using MVC.Models
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<table class="table table-bordered table-striped table-condensed">
-    
-    <tbody>
+<div class="row ">
+    <div class="col s12">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdCategory.Value @*IdWordEngNavigation.Word*@)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdWordEst @*IdWordEstNavigation.Word*@)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdCategoryNavigation.Subcategoryname)</td>
-                <td>
-                    <a id="editUserModal" data-toggle="modal" asp-action="EditUser" asp-route-id="@item.IdTranslation" data-target="#modal-action-user"
-                       class="btn btn-info">
-                        <i class="glyphicon glyphicon-pencil"></i>  Edit
-                    </a>
-                    <a id="deleteUserModal" data-toggle="modal" asp-action="DeleteUser" asp-route-id="@item.IdTranslation" data-target="#modal-action-user" class="btn btn-danger">
-                        <i class="glyphicon glyphicon-trash"></i>  Delete
-                    </a>
-                </td>
-            </tr>
+            <h5>
+                @Html.DisplayFor(modelItem => item.IdWordEngNavigation.Word)
+                <span class="new badge light-green"
+                      data-badge-caption=" @Html.DisplayFor(modelItem => item.IdPartNavigation.Partname)"></span>
+            </h5>
+            <div class="divider"></div>
+            <div class="row highlighted">
+                <div class="col s5 m5 l2 ">
+                    <span class="new badge indigo lighten-1 category"
+                          data-badge-caption=" @Html.DisplayFor(modelItem => item.IdCategoryNavigation.IdCategoryNavigation.Categoryname)"></span>
+                    <br>
+                    <br>
+                    <span class="new badge blue category"
+                          data-badge-caption=" @Html.DisplayFor(modelItem => item.IdCategoryNavigation.Subcategoryname)"></span>
+                </div>
+                <div class="col s7 m6 l3 definition">
+                    @Html.DisplayFor(modelItem => item.IdWordEstNavigation.Word)
+                </div>
+                <div class="col s12 m12 l6 explanation  offset-l1 ">
+                    @Html.DisplayFor(modelItem => item.Example)
+                </div>
+            </div>
+
         }
-    </tbody>
-</table>
+
+    </div>
+</div>
+
