@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using AutoMapper;
 using BaseEntities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +17,13 @@ namespace MVC.Controllers
     {
 
         //private readonly EngEstService engest;
+        private readonly IMapper mapper;
         
         private readonly IGenericTranslate<TranslationEngEst> translation;
-        public EngEstController( IGenericTranslate<TranslationEngEst> tr /*EngEstService engest*/)
+        public EngEstController( IGenericTranslate<TranslationEngEst> tr /*EngEstService engest*/,IMapper mapper)
         {
             //this.engest = engest;
-            
+            this.mapper = mapper;
             this.translation = tr;
 
         }
@@ -30,13 +32,28 @@ namespace MVC.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+
+            //if (ModelState.IsValid)
+            //{
+            //    var result = translation.GetByID(); authenticateService.RegisterUser(registerVM);  // implicit   
+            //                                                                // conversion from RegisterViewModel to User Model  
+
+            //    RegisterViewModel vm = result; // see implicit conversion   
+            //                                   // from User model to RegisterViewModel  
+
+            //    return View(vm);
+
+            //}
+            //return View(registerVM);
+
             List<EngEstViewModel> model = new List<EngEstViewModel>();
             translation.GetAll().ToList().ForEach(x =>
             {
-                TranslationEngEst trans = translation.GetByID(x.IdTranslation);
-                EngEstViewModel vm = new EngEstViewModel();
+                //TranslationEngEst trans = translation.GetByID(x.IdTranslation);
+                //EngEstViewModel vm = new EngEstViewModel();
+                var stuff = mapper.Map<EngEstViewModel, TranslationEngEst>(translation.GetByID(x.IdTranslation));
             
-            model.Add(vm);
+            model.Add(stuff);
 
             });
   
