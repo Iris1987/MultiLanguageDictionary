@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BaseEntities.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,20 @@ namespace MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options => {
+            options.LoginPath = "/Account/Login/";
+            //401
+            //options.Events.OnRedirectToLogin = (context) =>
+            //{
+            //    context.Response.StatusCode = 401;
+            //    return Task.CompletedTask;
+            //};
+        });
+            //Where the Login Path is the URL to your login page. 
+            //Remember this page should be excluded from authorization checks!
+            
             services.AddMvc();
             services.AddAutoMapper();
             services.AddDbContext<MyContext>
@@ -75,7 +90,7 @@ namespace MVC
             }
 
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -83,6 +98,7 @@ namespace MVC
                     template: "{controller=Home}/{action=Index}/{id?}");
                 
             });
+            
         }
     }
 }

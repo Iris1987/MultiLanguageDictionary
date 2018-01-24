@@ -43,9 +43,9 @@ namespace Services
         }
 
         // В таблице перевода idcategory относится к подкатегории (idsubcategory)
-        public IEnumerable<TranslationEngRus> GetByCategory(string word)
+        public IEnumerable<TranslationEngRus> GetByCategory(int id)
         {
-            return repository.GetAll().Where(z => z.IdCategoryNavigation.IdCategoryNavigation.Categoryname.Equals(word));
+            return repository.GetAll().Where(z => z.IdCategoryNavigation.IdCategoryNavigation.IdCategory.Equals(id));
         }
 
         public TranslationEngRus GetByID(int id)
@@ -55,9 +55,9 @@ namespace Services
             return engest;
         }
 
-        public IEnumerable<TranslationEngRus> GetBySubcategory(string word)
+        public IEnumerable<TranslationEngRus> GetBySubcategory(int id)
         {
-            return repository.GetAll().Where(y => y.IdCategoryNavigation.Subcategoryname.Equals(word));
+            return repository.GetAll().Where(y => y.IdCategoryNavigation.IdSubcategory.Equals(id));
 
 
         }

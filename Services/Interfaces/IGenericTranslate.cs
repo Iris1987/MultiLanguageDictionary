@@ -6,8 +6,8 @@ namespace Services.Interfaces
 {
     public interface IGenericTranslate<TEntity> where TEntity: class
     {
-        IEnumerable<TEntity> GetByCategory(string word);
-        IEnumerable<TEntity> GetBySubcategory(string word);
+        IEnumerable<TEntity> GetByCategory(int id);
+        IEnumerable<TEntity> GetBySubcategory(int id);
         IEnumerable<TEntity> GetAll();
         TEntity GetByID(int id);
         IEnumerable<TEntity> Find(string word);
